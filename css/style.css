@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+.header__title {
+  color: #000;
+  font-size: 4em;
+  text-transform: uppercase;
+}
+
+.header__label {
+  overflow: hidden;
+  position: relative;
+  padding: .6em;
+  color: #fff;
+  background-color: #000;
+}
+
+.header__label .header__input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+
+  cursor: pointer;
+  opacity: 0;
+}
+
+/* GENERATOR */
+
+.generator {
+  display: flex;
+  justify-content: center;
+  padding-top: 4em;
+}
+
+.generator__tools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2em;
+}
+
+/* TOOLS */
+
+.tools__label {
+  margin-top: .8em;
+  color: #000;
+  font-size: 18px;
+}
+
+.tools__input {
+  display: block;
+  margin-top: .6em;
+}
+
+.tools__btn {
+  width: 50%;
+  margin-top: .6em;
+  padding: .2em;
+
+  font-size: .8em;
+  font-weight: 800;
+
+  background: none;
+  border: 2px solid #000;
+}

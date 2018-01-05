@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Meme Generator</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,800" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main>
+    <header class="header">
+      <h1 class="header__title">
+        Meme Generator
+      </h1>
+      <label class="header__label">
+        Choose a file
+        <input id="file" class="header__input" type="file" name="file">
+      </label>
+    </header>
+    <div class="generator" id="image-container">
+      <canvas width="500" height="500"></canvas>
+      <div class="generator__tools">
+          <label class="tools__label">
+            <span>Top Line:</span>
+            <input id="topLineText" class="tools__input" type="text">
+          </label>
+
+          <label class="tools__label">
+            <span>Bottom Line:</span>
+            <input id="bottomLineText" class="tools__input" type="text">
+          </label>
+
+          <button id="saveBtn" class="tools__btn">Save</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
