@@ -1,17 +1,23 @@
-var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext("2d");
-var baseImage = new Image();
-baseImage.src = 'img/pepe.png'
+const canvas = document.querySelector('[data-js="canvas"]');
+const ctx = canvas.getContext('2d');
+const file = document.querySelector('[data-js="file"]');
+const btn = document.querySelector('[data-js="saveBtn"]');
+const topLineText = document.querySelector('[data-js="topLineText"]');
+const bottomLineText = document.querySelector('[data-js="bottomLineText"]');
 
-baseImage.onload = function(){
-  ctx.drawImage(baseImage, 0, 0);
-}
+window.topLineText = '';
+window.bottomLineText = '';
+topLineText.addEventListener('input', textChangeListener);
+bottomLineText.addEventListener('input', textChangeListener);
 
-function textChangeListener (evt) {
-    var id = evt.target.id;
-    var text = evt.target.value;
+file.addEventListener('change', handleFileSelect, false);
+btn.addEventListener('click', saveFile, false);
 
-    if (id == "topLineText") {
+function textChangeListener (e) {
+    const data = e.target.dataset.js;
+    const text = e.target.value;
+
+    if (data == 'topLineText') {
       window.topLineText = text;
     } else {
       window.bottomLineText = text;
@@ -21,10 +27,7 @@ function textChangeListener (evt) {
 }
 
 function redrawMeme(image, topLine, bottomLine) {
-    // Get Canvas2DContext
-    var canvas = document.querySelector('canvas');
-    var ctx = canvas.getContext("2d");
-    if (image != null)
+    if (image !== null)
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
     // Text attributes
@@ -46,39 +49,27 @@ function redrawMeme(image, topLine, bottomLine) {
 }
 
 function saveFile() {
-  window.open(document.querySelector('canvas').toDataURL());
+  window.open(canvas.toDataURL());
 }
 
-function handleFileSelect(evt) {
-  var canvasWidth = 500;
-  var canvasHeight = 500;
-  var file = evt.target.files[0];
+function handleFileSelect(e) {
+  const canvasWidth = 500;
+  const canvasHeight = 500;
+  const file = e.target.files[0];
 
-
-
-  var reader = new FileReader();
+  const reader = new FileReader();
   reader.onload = function(fileObject) {
-  var data = fileObject.target.result;
+    const data = fileObject.target.result;
 
-  // Create an image object
-  var image = new Image();
-  image.onload = function() {
-    window.imageSrc = this;
-    redrawMeme(window.imageSrc, null, null);
-  }
+    // Create an image object
+    const image = new Image();
+    image.onload = function() {
+      window.imageSrc = this;
+      redrawMeme(window.imageSrc, null, null);
+    }
 
-  // Set image data to background image.
-  image.src = data;
-    console.log(fileObject.target.result);
+    // Set image data to background image.
+    image.src = data;
   };
-  reader.readAsDataURL(file)
+  reader.readAsDataURL(file);
 }
-
-window.topLineText = "";
-window.bottomLineText = "";
-var input1 = document.getElementById('topLineText');
-var input2 = document.getElementById('bottomLineText');
-input1.oninput = textChangeListener;
-input2.oninput = textChangeListener;
-document.getElementById('file').addEventListener('change', handleFileSelect, false);
-document.querySelector('button').addEventListener('click', saveFile, false);

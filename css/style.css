@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 2em 0;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,6 +11,8 @@ body {
 }
 
 .header__title {
+  margin-top: 0;
+
   color: #000;
   font-size: 4em;
   text-transform: uppercase;
@@ -42,6 +44,10 @@ body {
   padding-top: 4em;
 }
 
+.generator__canvas {
+  border: 2px solid #000;
+}
+
 .generator__tools {
   display: flex;
   flex-direction: column;
@@ -60,14 +66,16 @@ body {
 .tools__input {
   display: block;
   margin-top: .6em;
+  padding: .2em;
+  border: 1px solid #000;
 }
 
 .tools__btn {
   width: 50%;
   margin-top: .6em;
-  padding: .2em;
+  padding: .3em;
 
-  font-size: .8em;
+  font-size: 1em;
   font-weight: 800;
 
   background: none;

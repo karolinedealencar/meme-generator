@@ -17,23 +17,22 @@
       </h1>
       <label class="header__label">
         Choose a file
-        <input id="file" class="header__input" type="file" name="file">
+        <input data-js="file" class="header__input" type="file" name="file">
       </label>
     </header>
     <div class="generator" id="image-container">
-      <canvas width="500" height="500"></canvas>
+      <canvas class="generator__canvas" data-js="canvas" width="500" height="500"></canvas>
       <div class="generator__tools">
           <label class="tools__label">
             <span>Top Line:</span>
-            <input id="topLineText" class="tools__input" type="text">
+            <input data-js="topLineText" class="tools__input" type="text">
           </label>
-
           <label class="tools__label">
             <span>Bottom Line:</span>
-            <input id="bottomLineText" class="tools__input" type="text">
+            <input data-js="bottomLineText" class="tools__input" type="text">
           </label>
 
-          <button id="saveBtn" class="tools__btn">Save</button>
+          <button data-js="saveBtn" class="tools__btn">Save</button>
       </div>
     </div>
   </main>
